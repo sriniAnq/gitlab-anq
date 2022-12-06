@@ -3,16 +3,16 @@ services:
   gitlab:
     image: gitlab/gitlab-ce:latest
     ports:
-      - "22:22"
-      - "80:80"
-      - "443:443"
+      - "2222:22"
+      - "8008:80"
+      - "4430:443"
     networks:
       - swarm-network
     volumes:
       - GITLAB_HOME_data:/var/opt/gitlab
       - GITLAB_HOME_logs:/var/log/gitlab
       - GITLAB_HOME_config:/etc/gitlab
-    shm_size: '256m'
+    # shm_size: '256m'
     environment:
       GITLAB_OMNIBUS_CONFIG: "from_file('/omnibus_config.rb')"
     configs:
