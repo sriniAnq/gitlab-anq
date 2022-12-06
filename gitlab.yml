@@ -35,24 +35,24 @@ secrets:
     file: ./root_password.txt
 
 volumes:
-  odoo-web-data:
+  GITLAB_HOME_data:
     driver: local
     driver_opts:
       type: nfs
       o: nfsvers=4.1,addr=anqci.file.core.windows.net,nolock,soft,rw
-      device: :/anqci/dev-storage/odoo/web
-  odoo-config-data:
+      device: :/anqci/dev-storage/gitlab/data
+  GITLAB_HOME_logs:
     driver: local
     driver_opts:
       type: nfs
       o: nfsvers=4.1,addr=anqci.file.core.windows.net,nolock,soft,rw
-      device: :/anqci/dev-storage/odoo/config
-  odoo-addons-data:
+      device: :/anqci/dev-storage/gitlab/logs
+  GITLAB_HOME_config:
     driver: local
     driver_opts:
       type: nfs
       o: nfsvers=4.1,addr=anqci.file.core.windows.net,nolock,soft,rw
-      device: :/anqci/dev-storage/odoo/addons
+      device: :/anqci/dev-storage/gitlab/config
 
 networks:
   swarm-network:
