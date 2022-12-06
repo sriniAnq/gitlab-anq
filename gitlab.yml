@@ -1,0 +1,60 @@
+version: "3.6"
+services:
+  gitlab:
+    image: gitlab/gitlab-ce:latest
+    ports:
+      - "22:22"
+      - "80:80"
+      - "443:443"
+    networks:
+      - swarm-network
+    volumes:
+      - GITLAB_HOME_data:/var/opt/gitlab
+      - GITLAB_HOME_logs:/var/log/gitlab
+      - GITLAB_HOME_config:/etc/gitlab
+    shm_size: '256m'
+    environment:
+      GITLAB_OMNIBUS_CONFIG: "from_file('/omnibus_config.rb')"
+    configs:
+      - source: gitlab
+        target: /omnibus_config.rb
+    secrets:
+      - gitlab_root_password
+  gitlab-runner:
+    image: gitlab/gitlab-runner:alpine
+    deploy:
+      mode: replicated
+      replicas: 4
+
+configs:
+  gitlab:
+    file: ./gitlab.rb
+
+secrets:
+  gitlab_root_password:
+    file: ./root_password.txt
+
+volumes:
+  odoo-web-data:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: nfsvers=4.1,addr=anqci.file.core.windows.net,nolock,soft,rw
+      device: :/anqci/dev-storage/odoo/web
+  odoo-config-data:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: nfsvers=4.1,addr=anqci.file.core.windows.net,nolock,soft,rw
+      device: :/anqci/dev-storage/odoo/config
+  odoo-addons-data:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: nfsvers=4.1,addr=anqci.file.core.windows.net,nolock,soft,rw
+      device: :/anqci/dev-storage/odoo/addons
+
+networks:
+  swarm-network:
+    external: true
+  
