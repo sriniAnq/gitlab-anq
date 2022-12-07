@@ -1,3 +1,6 @@
+# Disable LetEncrypt Registration and SSL Certificate
+letsencrypt['enable'] = false
+
 # Disable the built-in Postgres
 postgresql['enable'] = false
 
