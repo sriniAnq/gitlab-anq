@@ -6,6 +6,7 @@ services:
       - "2222:2222"
       - "8008:8008"
       - "4430:4430"
+      - "5432:5432"
     networks:
       - swarm-network
     volumes:
