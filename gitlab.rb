@@ -1,3 +1,6 @@
+# Disable bundled NGINX
+nginx['enable'] = false
+
 # Disable LetEncrypt Registration and SSL Certificate
 letsencrypt['enable'] = false
 
