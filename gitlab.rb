@@ -1,5 +1,6 @@
-# Disable bundled NGINX
+# Disable bundled NGINX and disable HTTPS as external NGINX will handle it
 nginx['enable'] = false
+nginx['listen_https'] = false
 
 # Disable LetEncrypt Registration and SSL Certificate
 letsencrypt['enable'] = false
