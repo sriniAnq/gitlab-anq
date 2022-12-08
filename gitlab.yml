@@ -5,8 +5,8 @@ services:
     ports:
       - "2222:22"
       - "8008:80"
-      - "4430:443"
-      - "5432:5432"
+      #- "4430:443"
+      #- "5432:5432"
     networks:
       - swarm-network
     volumes:
