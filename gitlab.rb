@@ -17,5 +17,5 @@ gitlab_rails['db_username'] = 'anq_mzxnvio'
 gitlab_rails['db_password'] = '2fPE%&G4#gRR*4TeTg'
 
 # External URL and root password configuration
-external_url 'https://gitlab.anq.dev/'
+external_url 'https://gitlab.anq.dev:8008'
 gitlab_rails['initial_root_password'] = File.read('/run/secrets/gitlab_root_password').gsub("\n", "")
