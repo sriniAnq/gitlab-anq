@@ -16,8 +16,8 @@ services:
     # shm_size: '256m'
     environment:
       GITLAB_OMNIBUS_CONFIG: 
-        "from_file('/omnibus_config.rb')"
-        "gitlab_rails['gitlab_shell_ssh_port'] = 2224"
+        - "from_file('/omnibus_config.rb')"
+        - "gitlab_rails['gitlab_shell_ssh_port'] = 2224"
     configs:
       - source: gitlab
         target: /omnibus_config.rb
