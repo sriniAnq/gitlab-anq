@@ -3,8 +3,8 @@ services:
   gitlab:
     image: gitlab/gitlab-ce:latest
     ports:
-      - "2222:22"
-      - "8008:80"
+      - "2224:2224"
+      - "8008:8008"
       #- "4430:443"
       #- "5432:5432"
     networks:
@@ -15,7 +15,9 @@ services:
       - GITLAB_HOME_config:/etc/gitlab
     # shm_size: '256m'
     environment:
-      GITLAB_OMNIBUS_CONFIG: "from_file('/omnibus_config.rb')"
+      GITLAB_OMNIBUS_CONFIG: 
+        "from_file('/omnibus_config.rb')"
+        "gitlab_rails['gitlab_shell_ssh_port'] = 2224"
     configs:
       - source: gitlab
         target: /omnibus_config.rb
