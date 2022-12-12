@@ -3,9 +3,9 @@ services:
   gitlab:
     image: gitlab/gitlab-ce:latest
     ports:
-      - "2224:2224"
-      - "8008:8008"
-      - "5432:5432"
+      - 2224:2224
+      - 8008:8008
+      - 5432:5432
     networks:
       - swarm-network
     volumes:
