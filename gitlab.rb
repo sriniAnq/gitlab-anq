@@ -11,7 +11,8 @@ postgresql['enable'] = false
 # Fill in the connection details for database.yml
 gitlab_rails['db_adapter'] = 'postgresql'
 gitlab_rails['db_encoding'] = 'utf8'
-gitlab_rails['db_host'] = 'anq-ci-dev.postgres.database.azure.com'
+# gitlab_rails['db_host'] = 'anq-ci-dev.postgres.database.azure.com'
+gitlab_rails['db_host'] = 'anq-ci-dev.anq.dev'
 gitlab_rails['db_port'] = '5432'
 gitlab_rails['db_username'] = 'anq_mzxnvio'
 gitlab_rails['db_password'] = '2fPE%&G4#gRR*4TeTg'
