@@ -38,22 +38,22 @@ secrets:
 volumes:
   GITLAB_HOME_data:
     driver: local
-    driver_opts:
-      type: nfs
-      o: nfsvers=4.1,addr=anqci.file.core.windows.net,nolock,soft,rw
-      device: :/anqci/dev-storage/gitlab/data
+    #driver_opts:
+    #  type: nfs
+    #  o: nfsvers=4.1,addr=anqci.file.core.windows.net,nolock,soft,rw
+    #  device: :/anqci/dev-storage/gitlab/data
   GITLAB_HOME_logs:
     driver: local
-    driver_opts:
-      type: nfs
-      o: nfsvers=4.1,addr=anqci.file.core.windows.net,nolock,soft,rw
-      device: :/anqci/dev-storage/gitlab/logs
+    #driver_opts:
+    #  type: nfs
+    #  o: nfsvers=4.1,addr=anqci.file.core.windows.net,nolock,soft,rw
+    #  device: :/anqci/dev-storage/gitlab/logs
   GITLAB_HOME_config:
     driver: local
-    driver_opts:
-      type: nfs
-      o: nfsvers=4.1,addr=anqci.file.core.windows.net,nolock,soft,rw
-      device: :/anqci/dev-storage/gitlab/config
+    #driver_opts:
+    #  type: nfs
+    #  o: nfsvers=4.1,addr=anqci.file.core.windows.net,nolock,soft,rw
+    #  device: :/anqci/dev-storage/gitlab/config
 
 networks:
   swarm-network:
