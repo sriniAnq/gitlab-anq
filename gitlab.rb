@@ -18,11 +18,11 @@ gitlab_rails['db_username'] = 'postgres'
 gitlab_rails['db_password'] = 'postgrespw'
 
 # The gitlab default is to use 6 unicorn worker processes. By reducing the number of workers to 2, my gitlab memory consumption decreased by approximately 60%
-GITLAB_OMNIBUS_CONFIG: "unicorn['worker_processes'] = 2"
+unicorn['worker_processes'] = 2
 # Most small installation do not need Prometheus, the monitoring tool integrated into Gitlab
-GITLAB_OMNIBUS_CONFIG: "prometheus_monitoring['enable'] = false"
+prometheus_monitoring['enable'] = false
 # sidekiq is the background job processor integrated into Gitlab. The default concurrency is 25. I recommend reducing it.
-GITLAB_OMNIBUS_CONFIG: "sidekiq['concurrency'] = 2"
+sidekiq['concurrency'] = 2
 
 # External URL and root password configuration
 external_url 'localhost:8008'
