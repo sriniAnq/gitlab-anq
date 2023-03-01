@@ -15,12 +15,7 @@ services:
     environment:
       GITLAB_OMNIBUS_CONFIG: "from_file('/omnibus_config.rb')"
       GITLAB_OMNIBUS_CONFIG: "gitlab_rails['gitlab_shell_ssh_port'] = 2224"
-      # The gitlab default is to use 6 unicorn worker processes. By reducing the number of workers to 2, my gitlab memory consumption decreased by approximately 60%
-      GITLAB_OMNIBUS_CONFIG: "unicorn['worker_processes'] = 2"
-      # Most small installation do not need Prometheus, the monitoring tool integrated into Gitlab
-      GITLAB_OMNIBUS_CONFIG: "prometheus_monitoring['enable'] = false"
-      # sidekiq is the background job processor integrated into Gitlab. The default concurrency is 25. I recommend reducing it.
-      GITLAB_OMNIBUS_CONFIG: "sidekiq['concurrency'] = 2"
+
     configs:
       - source: gitlab
         target: /omnibus_config.rb
