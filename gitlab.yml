@@ -17,7 +17,7 @@ services:
       GITLAB_OMNIBUS_CONFIG: "gitlab_rails['gitlab_shell_ssh_port'] = 2224"
 
     configs:
-      - source: gitlab
+      - source: gitlabconfig
         target: /omnibus_config.rb
     secrets:
       - gitlab_root_password
@@ -28,7 +28,7 @@ services:
        # replicas: 2
 
 configs:
-  gitlab:
+  gitlabconfig:
     file: ./gitlab.rb
 
 secrets:
