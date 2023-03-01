@@ -21,11 +21,11 @@ services:
         target: /omnibus_config.rb
     secrets:
       - gitlab_root_password
-  # gitlab-runner:
-    # image: gitlab/gitlab-runner:alpine
-    # deploy:
-      # mode: replicated
-      # replicas: 4
+    gitlab-runner:
+      image: gitlab/gitlab-runner:alpine
+      deploy:
+        mode: replicated
+        replicas: 2
 
 configs:
   gitlab:
